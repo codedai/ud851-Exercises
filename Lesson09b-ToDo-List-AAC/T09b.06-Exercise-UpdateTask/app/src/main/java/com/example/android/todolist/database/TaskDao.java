@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import java.util.List;
+import java.util.TreeSet;
 
 @Dao
 public interface TaskDao {
@@ -26,4 +27,6 @@ public interface TaskDao {
 
     // TODO (1) Create a Query method named loadTaskById that receives an int id and returns a TaskEntry Object
     // The query for this method should get all the data for that id in the task table
+    @Query("SELECT * FROM task WHERE id=:id")
+    TaskEntry loadTaskById(int id);
 }
